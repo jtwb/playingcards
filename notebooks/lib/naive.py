@@ -9,8 +9,7 @@ import numpy as np
 #  generate random permutation
 #  check: in set?
 #  add to set
-
-def run(n, verbose=False):
+def run(n, deck_size=52, verbose=False):
     ''' RUNTIME DATA '''
     i = 0
     collision = False
@@ -31,7 +30,7 @@ def run(n, verbose=False):
     atexit.register(its_over)
 
     while i < n:
-        perm = tuple(np.random.permutation(52))
+        perm = tuple(np.random.permutation(deck_size))
         if perm in visited:
             collision = True
             print "COLLISION FOUND!"
